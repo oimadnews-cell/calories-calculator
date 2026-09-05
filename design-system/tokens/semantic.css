@@ -1,0 +1,134 @@
+/**
+ * Design tokens — semantic
+ *
+ * Role-based aliases over the primitives in primitives.css. Product code
+ * (future components and patterns) should only ever reference tokens from
+ * this file, never from primitives.css directly.
+ *
+ * This is the layer that carries meaning: what a color, size, or space is
+ * *for*, not what its raw value is. When the visual direction evolves, this
+ * file is where that shows up — primitives.css should rarely need to change.
+ */
+
+:root {
+  /* =========================================================
+   * 1. Color
+   * =======================================================*/
+
+  /* Surfaces */
+  --color-bg: var(--palette-paper);
+  --color-surface: var(--palette-surface);
+
+  /* Text */
+  --color-text: var(--palette-ink);
+  --color-text-muted: var(--palette-ink-a60);
+
+  /* Accent — brand/action only. See DESIGN_SYSTEM.md "Using the accent"
+   * before binding this to anything calorie- or fit-related. */
+  --color-accent: var(--palette-acid-lime);
+  --color-on-accent: var(--palette-black); /* text/icons placed on the accent */
+
+  /* Supporting palette — occasional, editorial use. Not status colors. */
+  --color-supporting-tomato: var(--palette-tomato);
+  --color-supporting-olive: var(--palette-deep-olive);
+
+  /* Borders */
+  --color-border: var(--palette-ink-a12);
+  --color-border-strong: var(--palette-ink);
+
+  /* Deliberately absent: --color-success / --color-error / --color-warning
+   * or any "good/bad" calorie-state color. See DESIGN_SYSTEM.md. */
+
+
+  /* =========================================================
+   * 2. Typography
+   * Each role bundles family + size + weight + line-height (+ letter
+   * spacing where relevant) so a component only ever binds one role.
+   * =======================================================*/
+
+  /* Display / large numeric — the calorie number. The system's one
+   * intentionally oversized, expressive moment. */
+  --text-display-family: var(--font-family-display);
+  --text-display-size: var(--font-size-display-numeric);
+  --text-display-weight: var(--font-weight-extrabold);
+  --text-display-line-height: var(--line-height-display);
+
+  /* Heading — screen/section titles */
+  --text-heading-family: var(--font-family-display);
+  --text-heading-size: var(--font-size-heading);
+  --text-heading-weight: var(--font-weight-extrabold);
+  --text-heading-line-height: var(--line-height-heading);
+
+  /* Subheading — secondary titles, recipe/food names */
+  --text-subheading-family: var(--font-family-display);
+  --text-subheading-size: var(--font-size-subheading);
+  --text-subheading-weight: var(--font-weight-semibold);
+  --text-subheading-line-height: var(--line-height-heading);
+
+  /* Body — primary UI copy */
+  --text-body-family: var(--font-family-functional);
+  --text-body-size: var(--font-size-body);
+  --text-body-weight: var(--font-weight-regular);
+  --text-body-line-height: var(--line-height-body);
+
+  /* Body-small — secondary UI copy, captions */
+  --text-body-small-family: var(--font-family-functional);
+  --text-body-small-size: var(--font-size-body-small);
+  --text-body-small-weight: var(--font-weight-regular);
+  --text-body-small-line-height: var(--line-height-body);
+
+  /* Label — uppercase-style section/field labels */
+  --text-label-family: var(--font-family-functional);
+  --text-label-size: var(--font-size-label);
+  --text-label-weight: var(--font-weight-medium);
+  --text-label-line-height: var(--line-height-body);
+  --text-label-letter-spacing: var(--letter-spacing-label);
+
+  /* Numeric / item value — quantities and per-item calories in a list row */
+  --text-item-value-family: var(--font-family-functional);
+  --text-item-value-size: var(--font-size-item-value);
+  --text-item-value-weight: var(--font-weight-medium);
+  --text-item-value-line-height: var(--line-height-body);
+
+
+  /* =========================================================
+   * 3. Spacing
+   * Named by relationship, not by size — pick the token that describes
+   * what two things are to each other, not how many pixels you want.
+   * =======================================================*/
+
+  --space-inline-tight: var(--space-1);   /* 4px  — icon-to-label, tight inline pairs */
+  --space-inline: var(--space-2);         /* 8px  — inline groups (qty + unit) */
+  --space-item-row-gap: var(--space-3);   /* 12px — between rows in a list (food items) */
+  --space-card-padding: var(--space-4);   /* 16px — internal padding of a card/row container */
+  --space-page-margin: var(--space-5);    /* 20px — screen-edge margins */
+  --space-section-gap: var(--space-8);    /* 32px — between major sections on a screen */
+
+
+  /* =========================================================
+   * 4. Radius
+   * Restrained on purpose — see DESIGN_SYSTEM.md. Full radius exists for
+   * genuinely circular/pill cases only, not as a default rounding.
+   * =======================================================*/
+
+  --radius-small: var(--radius-1);      /* inputs, quantity fields, small tags */
+  --radius-medium: var(--radius-2);     /* cards, buttons, images */
+  --radius-full: var(--radius-full-raw); /* circular/pill only — see note above */
+
+
+  /* =========================================================
+   * 5. Border
+   * Shorthand tokens — bind `border: var(--border-subtle);` directly.
+   * =======================================================*/
+
+  --border-subtle: var(--border-width-1) solid var(--color-border);
+  --border-strong: var(--border-width-2) solid var(--color-border-strong);
+
+
+  /* =========================================================
+   * 6. Shadow
+   * One token. Reach for a border before reaching for a second one.
+   * =======================================================*/
+
+  --shadow-elevation-1: var(--shadow-raw-1);
+}

@@ -1,0 +1,78 @@
+/**
+ * Design tokens — primitives
+ *
+ * Raw values only: palette colors, raw type/spacing/radius/border/shadow
+ * scales. No meaning or usage is attached here.
+ *
+ * Do not reference these variables directly from product code — use the
+ * semantic tokens in semantic.css instead. This file is the only place
+ * allowed to change when the underlying palette, type scale, or spacing
+ * unit changes.
+ */
+
+:root {
+  /* ---- Palette (Acid Market) ---- */
+  --palette-paper: #F9F6EE;
+  --palette-surface: #F0ECDD;
+  --palette-ink: #1A1A16;
+  --palette-acid-lime: #D7FF3D;
+  --palette-tomato: #E8462C;
+  --palette-deep-olive: #2B3B1F;
+  --palette-black: #000000;
+
+  /* Ink at fixed alphas — the only opacity variants the system needs */
+  --palette-ink-a12: rgba(26, 26, 22, 0.12); /* hairline / subtle border */
+  --palette-ink-a60: rgba(26, 26, 22, 0.6);  /* muted text */
+
+  /* ---- Type: families ---- */
+  --font-family-display: 'Bricolage Grotesque', sans-serif;
+  --font-family-functional: 'Inter', sans-serif;
+
+  /* ---- Type: raw sizes (mobile, 375px baseline) ---- */
+  --font-size-display-numeric: 64px;
+  --font-size-heading: 28px;
+  --font-size-subheading: 18px;
+  --font-size-body: 15px;
+  --font-size-body-small: 13px;
+  --font-size-label: 12px;
+  --font-size-item-value: 14px;
+
+  /* ---- Type: raw weights ---- */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-extrabold: 800;
+
+  /* ---- Type: raw line heights (unitless) ---- */
+  --line-height-display: 1.0;
+  --line-height-heading: 1.15;
+  --line-height-body: 1.45;
+
+  /* ---- Type: raw letter spacing ---- */
+  --letter-spacing-label: 0.06em;
+
+  /* ---- Spacing: base unit 4px ---- */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ---- Radius: raw scale ---- */
+  --radius-0: 0px;
+  --radius-1: 4px;
+  --radius-2: 8px;
+  --radius-full-raw: 999px;
+
+  /* ---- Border: raw widths ---- */
+  --border-width-1: 1px;
+  --border-width-2: 1.5px;
+
+  /* ---- Shadow: raw definitions ---- */
+  --shadow-raw-1: 0 1px 2px rgba(26, 26, 22, 0.08);
+}

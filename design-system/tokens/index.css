@@ -1,0 +1,10 @@
+/**
+ * Design tokens — entry point
+ *
+ * Import this file, not primitives.css or semantic.css individually.
+ * Layer order matters: primitives must load before semantic aliases
+ * that reference them.
+ */
+
+@import url('./primitives.css');
+@import url('./semantic.css');

@@ -61,6 +61,56 @@ Confirmed sequence:
 
 The two flows share the composition/calculation surface rather than duplicating it: Flow B's "review/edit composition → calculate calories" step is the same surface as Flow A, pre-populated from a recipe instead of started from scratch. This keeps the number of distinct surfaces intentionally small.
 
+## Canonical Screen — Primary Composition / Calculator
+
+This is the single canonical screen that implements the Entry Point and Shared Composition/Calculation Engine decisions above. Flow A starts here directly; Flow B ends here after recipe selection.
+
+Confirmed:
+
+- Primary Composition is the canonical composition surface for the product.
+- There is no mode-selection screen.
+- The primary entry point is a food/dish search.
+- "Find a recipe" is a secondary entry point into Recipe Discovery.
+- Selecting a food/product adds it to "Your meal."
+- A meal can contain multiple food items.
+- Each food item has an editable quantity and calculated calories.
+- Quantity changes automatically recalculate item calories and meal total.
+- There is no "Recalculate" action.
+- "Meal target" is optional and user-owned.
+- The product never derives, suggests, or pre-fills the target.
+- Without a target, calories and total remain visible, but target fit is unavailable.
+- With a target, the screen shows a neutral numeric relationship between total calories and the target.
+- Recipe selection must eventually populate this same "Your meal" composition surface rather than creating a separate editing context.
+- Manual food composition remains available even when recipe discovery exists.
+
+### Empty State
+
+- Calories Calculator
+- What are you eating?
+- Search food or dish...
+- Find a recipe
+- Your meal
+- No items yet
+- Meal target
+- + Set target
+
+### Active State
+
+- Your meal
+- Chicken breast — 200 g — 330 kcal
+- Rice — 150 g — 195 kcal
+- + Add food
+- Meal target — 600 kcal — Edit
+- Total — 525 kcal
+- 88% of target
+
+### Open Questions
+
+Not decided, and not assumed by this document:
+
+- **Target editing interaction pattern** — how the user moves between the unset/set states and edits an existing target (inline field, expandable row, sheet/modal, etc.) is an interaction detail to be finalized later.
+- **Quantity editing treatment** — how the user edits a food item's quantity (stepper, direct numeric entry, unit switching, etc.) is an interaction detail to be finalized later.
+
 ## Explicit Exclusions from Core Architecture
 
 - **AI photo recognition** — optional hypothesis only; not part of Flow A, Flow B, or the shared engine.
