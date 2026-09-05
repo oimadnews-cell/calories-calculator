@@ -54,7 +54,8 @@ This repository is for a UX/UI Engineer Trainee take-home assignment.
 See `PRODUCT_BRIEF.md` and `UX_ARCHITECTURE.md` for full detail. Summary:
 
 - Two core user stories: calculating calories for a dish/product, and finding a suitable recipe.
-- "Suitable" (v1) = calorie fit against a per-meal calorie target.
+- "Suitable" (v1) = calorie fit against a per-meal calorie target, but only when the user has set one. The target is optional and user-owned, set via a single numeric input, and never supplied/derived/suggested/prefilled by the product. Without a target, fit is unavailable/undefined — never an implicit pass. Fit is a neutral numeric relationship to the target, not a pass/fail judgment.
+- Entry point is calculator-first: there is no mode-selection screen. The composition/calculation surface is the canonical product surface; recipe discovery is a clearly visible secondary input method that feeds that same surface — there is no separate recipe editing context.
 - Recipe discovery is a real core flow, not a future hypothesis, and must not hard-filter by calorie target.
 - A selected recipe becomes an editable composition, evaluated by the same calorie calculator used for direct dish/product calculation.
 - The recipe's original serving is a reference point; the user's actual portion is adjustable before the final verdict.
@@ -66,13 +67,15 @@ See `PRODUCT_BRIEF.md` and `UX_ARCHITECTURE.md` for full detail. Summary:
 
 - AI photo recognition — optional product hypothesis only; must not become part of the core architecture.
 - Navigation, accounts/authentication, tracking, macros, pantry matching, allergies, and social features — not part of the two confirmed core flows.
+- Any system-supplied, derived, or suggested calorie target — the target is always user-entered.
+- A separate mode-selection screen, and a separate recipe editing context distinct from the shared composition surface.
 
 ## Not Yet Decided
 
 The following remain genuinely open and should not be assumed:
 
 - Target audience
-- The specific per-meal calorie target methodology/default (only that suitability is judged against *a* per-meal target)
+- Cross-session persistence of the calorie target
 - Nutrition/ingredient database source
 - Onboarding
 - Visual style

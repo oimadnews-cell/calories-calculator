@@ -7,7 +7,9 @@ This document reconstructs the analysis behind the confirmed recipe-suitability 
 ## FACT (confirmed during Product Discovery)
 
 - Recipe discovery is a real core flow for this take-home, not a future hypothesis.
-- "Suitable" (v1) is defined as calorie fit against a per-meal calorie target.
+- "Suitable" (v1) is defined as calorie fit against a per-meal calorie target — but only when a target is set. Without a target, suitability/fit is unavailable/undefined, never an implicit pass.
+- The per-meal calorie target is optional and user-owned: set via a single numeric input, and never supplied, derived, suggested, or prefilled by the product.
+- Fit is communicated as a neutral numeric relationship to the target, not as a pass/fail judgment.
 - A selected recipe becomes an editable composition, evaluated by the same calorie calculator used for direct dish/product calculation.
 - The recipe's original serving is a reference point; the user's actual portion is adjustable before the final verdict.
 - Recipe discovery must not hard-filter recipes by calorie target.
@@ -46,14 +48,15 @@ The following are reasonable inferences drawn from the confirmed decisions, but 
 
 Not resolved by Product Discovery and not assumed here:
 
-- What is the numeric per-meal calorie target, or the methodology for deriving it (e.g., fixed value, derived from a user profile)? Only that suitability is judged against *a* per-meal target is confirmed.
 - What is the source of recipe and ingredient calorie data (nutrition database)?
 - What does the "discover" step look like beyond the no-hard-filter rule — is there sorting, search, or any soft signal (e.g., proximity to the calorie target) surfaced without excluding recipes?
-- Does an "unsuitable" verdict block the user from proceeding, or is it purely informational? Not stated.
+- Cross-session persistence of the calorie target — does it persist beyond the current session? Not decided.
 
 ## Implications for Architecture
 
 - Recipe discovery (Story 2) and direct calculation (Story 1) must share one composition/calculation engine rather than each getting a bespoke one — see `UX_ARCHITECTURE.md`, Shared Composition/Calculation Engine.
-- A recipe's role in the architecture is to *seed* an editable composition, not to produce a result directly — the calculation and verdict happen after user edits, using the same mechanism as manual composition.
-- The suitability comparison (result vs. per-meal target) is a downstream step applied to the calculated result, not a filter applied to the recipe list — this rules out any architecture that excludes recipes from discovery based on calories.
+- A recipe's role in the architecture is to *seed* an editable composition, not to produce a result directly — the calculation, and the fit-against-target check when a target is set, happen after user edits, using the same mechanism as manual composition.
+- The fit comparison (result vs. per-meal target, only when a target is set) is a downstream step applied to the calculated result, not a filter applied to the recipe list — this rules out any architecture that excludes recipes from discovery based on calories.
+- The architecture must support an explicit unset/set target state — there is no default value to fall back on. Recipe fit checks and meal-composition fit checks use the same target-application logic; the target is not duplicated per flow.
+- Entry into this flow is calculator-first with no mode-selection screen; recipe discovery is a secondary path that feeds the same composition surface used for direct calculation, with no separate recipe editing context (see `UX_ARCHITECTURE.md`, Entry Point).
 - AI photo recognition must remain excluded from this flow's core architecture; any future documentation of it must be clearly labeled as an optional hypothesis, separate from Flow B.

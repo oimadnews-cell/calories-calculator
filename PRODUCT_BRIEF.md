@@ -9,7 +9,7 @@ Source: Product Discovery (Claude Chat), confirmed prior to this repository's se
 
 ## Confirmed Product Decisions
 
-- **Suitability (v1 definition):** "Suitable" means calorie fit against a per-meal calorie target. No other suitability signal (dietary restriction, ingredient availability, taste preference, etc.) is part of v1.
+- **Suitability (v1 definition):** the per-meal calorie target is optional and user-owned. Calories are always calculated and displayed, with or without a target. Suitability/fit only exists when a target is set — without one it is unavailable/undefined, never an implicit pass. No other suitability signal (dietary restriction, ingredient availability, taste preference, etc.) is part of v1.
 - **Recipe discovery is core:** it is a real, required flow for this take-home, not a future hypothesis.
 - **Recipe → editable composition → calculator:** a selected recipe becomes an editable composition, which is then evaluated by the same calorie calculator used for direct dish/product calculation.
 - **Original serving as reference:** the recipe's original serving size is shown as a reference point. The user's actual portion can be adjusted before the final calorie verdict is produced.
@@ -26,7 +26,15 @@ Source: Product Discovery (Claude Chat), confirmed prior to this repository's se
 
 ## Calorie Target
 
-The per-meal calorie target is treated as a product decision and is the basis for the v1 suitability verdict. **No numeric default is confirmed.** Any numeric value used elsewhere (design screens, examples) must be clearly marked as a temporary/placeholder assumption, not a decided requirement.
+The per-meal calorie target is optional and user-owned:
+
+- The product never supplies, derives, suggests, or prefills a target. **No numeric default is confirmed or planned.** Any numeric value used elsewhere (design screens, examples) must be clearly marked as a temporary/placeholder assumption, not a decided requirement.
+- The user sets the target through a single numeric input.
+- The target persists for the current session and can be edited or cleared.
+- The target applies to both meal compositions and recipe fit checks.
+- When a target is set, fit is communicated as a neutral numeric relationship to the target, not as a pass/fail judgment.
+- When no target is set, suitability/fit is unavailable/undefined — never an implicit pass.
+- Cross-session persistence of the target remains an open question (see Not Yet Decided).
 
 ## AI Photo Recognition (optional hypothesis)
 
@@ -38,4 +46,4 @@ Per the scope-discipline decision, the following are not part of this take-home'
 
 ## Not Yet Decided
 
-Target audience, the numeric per-meal calorie target/methodology, nutrition/ingredient database source, onboarding, visual style, colors, typography, framework, component library, backend, API, and data persistence remain undecided — see `CLAUDE.md`.
+Target audience, cross-session persistence of the calorie target, nutrition/ingredient database source, onboarding, visual style, colors, typography, framework, component library, backend, API, and data persistence remain undecided — see `CLAUDE.md`.
