@@ -11,18 +11,26 @@
  */
 
 :root {
-  /* ---- Palette (Acid Market) ---- */
-  --palette-paper: #F9F6EE;
-  --palette-surface: #F0ECDD;
-  --palette-ink: #1A1A16;
-  --palette-acid-lime: #D7FF3D;
+  /* ---- Palette (Acid Nutrition / Dark Market) ----
+   * V2 direction: dark surfaces + acid-lime accent, replacing the V1
+   * warm-paper palette (see DESIGN_DIRECTION_V2.md). The background/text
+   * pair is a literal inversion of the V1 paper/ink pair — the old ink
+   * color becomes the new background, the old paper color becomes the
+   * new primary text — which is why the "warm, not clinical" quality
+   * carries over unchanged.
+   */
+  --palette-ink-black: #1A1A16;   /* app background — near-black, warm undertone (was V1 --palette-ink) */
+  --palette-charcoal: #242219;    /* elevated surface — one step lighter than the background */
+  --palette-warm-white: #F9F6EE;  /* primary text — warm white, not clinical (was V1 --palette-paper) */
+  --palette-grey-muted: #9A9686;  /* secondary / muted text */
+  --palette-acid-lime: #D7FF3D;   /* signature accent — unchanged from V1 */
   --palette-tomato: #E8462C;
   --palette-deep-olive: #2B3B1F;
   --palette-black: #000000;
 
-  /* Ink at fixed alphas — the only opacity variants the system needs */
-  --palette-ink-a12: rgba(26, 26, 22, 0.12); /* hairline / subtle border */
-  --palette-ink-a60: rgba(26, 26, 22, 0.6);  /* muted text */
+  /* Warm-white at a fixed low alpha — the only opacity variant the system needs,
+   * used for the hairline rule against the dark ground. */
+  --palette-line-a12: rgba(249, 246, 238, 0.12);
 
   /* ---- Type: families ---- */
   --font-family-display: 'Bricolage Grotesque', sans-serif;

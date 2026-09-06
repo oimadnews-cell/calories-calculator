@@ -1,0 +1,65 @@
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-inline);
+  padding: var(--space-card-padding);
+  border: var(--border-strong);
+  border-radius: var(--radius-medium);
+  background: var(--color-surface);
+}
+
+.name {
+  font-family: var(--text-body-family);
+  font-size: var(--text-body-size);
+  font-weight: var(--text-body-weight);
+  line-height: var(--text-body-line-height);
+  color: var(--color-text);
+}
+
+.quantityLabel {
+  font-family: var(--text-label-family);
+  font-size: var(--text-label-size);
+  font-weight: var(--text-label-weight);
+  line-height: var(--text-label-line-height);
+  letter-spacing: var(--text-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.quantityRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-inline);
+}
+
+.quantityInput {
+  width: 100%;
+  padding: var(--space-2) var(--space-card-padding);
+  border: var(--border-subtle);
+  border-radius: var(--radius-small);
+  background: var(--color-bg);
+  font-family: var(--text-item-value-family);
+  font-size: var(--text-item-value-size);
+  font-weight: var(--text-item-value-weight);
+  line-height: var(--text-item-value-line-height);
+  color: var(--color-text);
+}
+
+.quantityInput:focus-visible {
+  outline: none;
+  border: var(--border-strong);
+}
+
+.unit {
+  font-family: var(--text-item-value-family);
+  font-size: var(--text-item-value-size);
+  font-weight: var(--text-item-value-weight);
+  line-height: var(--text-item-value-line-height);
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-inline);
+}

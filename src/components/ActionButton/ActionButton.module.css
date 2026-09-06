@@ -1,0 +1,50 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-inline-tight);
+  padding: var(--space-2) var(--space-card-padding);
+  border-radius: var(--radius-medium);
+  font-family: var(--text-body-family);
+  font-size: var(--text-body-size);
+  font-weight: var(--text-item-value-weight);
+  line-height: var(--text-body-line-height);
+  cursor: pointer;
+  transition: border 0.15s ease;
+}
+
+/* Invisible touch-target expansion: grows the tappable area vertically
+ * (never horizontally, so adjacent buttons in the same row — e.g. Edit /
+ * Clear — never gain overlapping hit zones) without changing the button's
+ * visible size. */
+.button::before {
+  content: '';
+  position: absolute;
+  inset-block: calc(-1 * var(--space-1));
+  inset-inline: 0;
+}
+
+.primary {
+  border: none;
+  padding-inline: var(--space-page-margin);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.secondary {
+  border: var(--border-subtle);
+  background: transparent;
+  color: var(--color-text);
+}
+
+.button:focus-visible,
+.button:active {
+  outline: none;
+  border: var(--border-strong);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

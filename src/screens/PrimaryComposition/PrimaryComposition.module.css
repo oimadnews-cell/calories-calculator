@@ -1,0 +1,72 @@
+.screen {
+  max-width: 375px;
+  margin-inline: auto;
+  min-height: 100vh;
+  padding: var(--space-section-gap) var(--space-page-margin);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-section-gap);
+}
+
+.entrySection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.findRecipeButton {
+  align-self: flex-start;
+}
+
+/* Doubled class selector deliberately raises specificity above
+ * ActionButton's own .button padding rule, which lives in a separate CSS
+ * module and would otherwise win or lose depending on build/load order. */
+.findRecipeButton.findRecipeButton {
+  padding-block: var(--space-3);
+  padding-inline: var(--space-5);
+}
+
+.mealSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-item-row-gap);
+}
+
+.sectionLabel {
+  font-family: var(--text-label-family);
+  font-size: var(--text-label-size);
+  font-weight: var(--text-label-weight);
+  line-height: var(--text-label-line-height);
+  letter-spacing: var(--text-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.recipeReference {
+  margin: 0;
+  font-family: var(--text-body-small-family);
+  font-size: var(--text-body-small-size);
+  font-weight: var(--text-body-small-weight);
+  line-height: var(--text-body-small-line-height);
+  color: var(--color-text-muted);
+}
+
+.mealList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-item-row-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.emptyState {
+  padding: var(--space-card-padding) 0;
+  text-align: center;
+  font-family: var(--text-body-small-family);
+  font-size: var(--text-body-small-size);
+  font-weight: var(--text-body-small-weight);
+  line-height: var(--text-body-small-line-height);
+  color: var(--color-text-muted);
+}

@@ -16,12 +16,12 @@
    * =======================================================*/
 
   /* Surfaces */
-  --color-bg: var(--palette-paper);
-  --color-surface: var(--palette-surface);
+  --color-bg: var(--palette-ink-black);
+  --color-surface: var(--palette-charcoal);
 
   /* Text */
-  --color-text: var(--palette-ink);
-  --color-text-muted: var(--palette-ink-a60);
+  --color-text: var(--palette-warm-white);
+  --color-text-muted: var(--palette-grey-muted);
 
   /* Accent — brand/action only. See DESIGN_SYSTEM.md "Using the accent"
    * before binding this to anything calorie- or fit-related. */
@@ -33,8 +33,8 @@
   --color-supporting-olive: var(--palette-deep-olive);
 
   /* Borders */
-  --color-border: var(--palette-ink-a12);
-  --color-border-strong: var(--palette-ink);
+  --color-border: var(--palette-line-a12);
+  --color-border-strong: var(--palette-warm-white);
 
   /* Deliberately absent: --color-success / --color-error / --color-warning
    * or any "good/bad" calorie-state color. See DESIGN_SYSTEM.md. */

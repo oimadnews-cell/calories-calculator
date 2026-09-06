@@ -1,0 +1,78 @@
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-inline-tight);
+  /* Padding + matching negative margin grow the tappable area beyond the
+   * visible text without shifting where the text itself sits (mobile-first
+   * touch target, not a visual size change) or widening past the page frame. */
+  padding-block: var(--space-2);
+  padding-inline: var(--space-2);
+  margin-inline: calc(-1 * var(--space-2));
+  border: none;
+  border-bottom: var(--border-strong);
+  border-bottom-color: var(--color-border);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+/* :where() keeps this at .row's own specificity, so the focus/active rule
+ * below still wins on the last row — it only removes the trailing hairline
+ * against MealSummary's own border-top, not the interaction feedback. */
+:where(li:last-child) .row {
+  border-bottom-color: transparent;
+}
+
+.row:focus-visible,
+.row:active {
+  outline: none;
+  border-bottom-color: var(--color-border-strong);
+  background-color: var(--color-surface);
+}
+
+.primaryLine {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-inline);
+}
+
+.name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--text-subheading-family);
+  font-size: var(--text-subheading-size);
+  font-weight: var(--text-subheading-weight);
+  line-height: var(--text-subheading-line-height);
+  color: var(--color-text);
+}
+
+.calories {
+  flex-shrink: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--text-item-value-family);
+  font-size: var(--text-item-value-size);
+  font-weight: var(--text-item-value-weight);
+  line-height: var(--text-item-value-line-height);
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.quantity {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--text-label-family);
+  font-size: var(--text-label-size);
+  font-weight: var(--text-label-weight);
+  line-height: var(--text-label-line-height);
+  letter-spacing: var(--text-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}

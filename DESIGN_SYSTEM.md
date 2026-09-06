@@ -121,7 +121,7 @@ These were necessary implementation choices, not confirmed product decisions —
 - **CSS custom properties** as the token format, per this task's explicit instruction — this doesn't imply or decide a web framework, and frameworks/backend remain undecided per `CLAUDE.md`.
 - **Base spacing unit of 4px** and the specific scale steps (4/8/12/16/20/24/32/40/48) — a common, restrained convention for a compact mobile scale; not something the product docs specified.
 - **Exact type sizes** (e.g. 64px display, 28px heading) were sized for a 375px mobile frame consistent with the wireframes, not pulled from a confirmed spec.
-- **Font loading/fallback stacks** are not addressed here (no `@font-face`, no system-font fallback chain) — that's an implementation detail for whenever a framework is chosen.
+- **Font loading:** Bricolage Grotesque (Display/Heading) and Inter (functional/UI) are loaded via a Google Fonts stylesheet link, present in both the Vite application (`index.html`) and Storybook (`.storybook/preview-head.html`) so tokens render with their intended typefaces in both surfaces. The `sans-serif` fallback in `primitives.css` is unchanged.
 - **No dark mode / theming layer** — the approved direction is a single paper/ink look; nothing in the product docs asks for a second theme, so none was added.
 - **`--shadow-elevation-1`'s exact values** (blur/spread/opacity) are a reasonable, minimal placeholder for "subtle elevation," not a confirmed spec.
 
