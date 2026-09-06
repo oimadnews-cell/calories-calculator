@@ -6,6 +6,10 @@ A mobile-first prototype built for a UX/UI Engineer take-home assignment. It let
 
 [Open the live prototype](https://calories-calculator-ten.vercel.app)
 
+## Video Presentation
+
+[Watch the presentation](https://youtu.be/6ZJm-ooywbE)
+
 ## User Stories
 
 1. As a user, I want to calculate the amount of calories in a dish or a specific product.
