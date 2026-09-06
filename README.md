@@ -2,6 +2,10 @@
 
 A mobile-first prototype built for a UX/UI Engineer take-home assignment. It lets a user calculate the calories in a dish or product they compose themselves, or start from a recipe and adjust it to their own portion — both paths flow through the same calculation engine and land on one shared screen.
 
+## Live Demo
+
+[Open the live prototype](https://calories-calculator-ten.vercel.app)
+
 ## User Stories
 
 1. As a user, I want to calculate the amount of calories in a dish or a specific product.
